@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Проекты и кейсы | Илья Витальевич</title>
+<meta content="Кейсы: Lead Intelligence System и Payroll Automation Engine — архитектура, вклад и результаты." name="description"/>
+<meta content="#141313" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="Проекты и кейсы | Илья Витальевич" property="og:title"/>
+<meta content="Кейсы: Lead Intelligence System и Payroll Automation Engine — архитектура, вклад и результаты." property="og:description"/>
+<link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&amp;icon_names=admin_panel_settings,arrow_forward,arrow_outward,close,data_object,dns,download,explore,memory,menu,schema,smart_toy,speed,terminal,web&amp;display=block" rel="stylesheet"/>
+<link href="../assets/css/styles.css" rel="stylesheet"/>
+<script defer="" src="../assets/js/main.js"></script>
+<script defer="" src="../assets/js/contacts.js"></script>
+</head>
+<body class="min-h-screen flex flex-col pt-16 bg-background text-on-background font-body-md antialiased selection:bg-electric-orange selection:text-background">
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+<header class="fixed top-0 inset-x-0 z-50 bg-background border-b border-stroke-soft font-metadata text-metadata">
+<div class="h-16 flex items-center justify-between gap-6 px-margin-mobile md:px-margin-desktop">
+<a class="font-headline-md text-headline-md font-bold text-on-surface" href="../">REF_DEV</a>
+<nav aria-label="Основное меню" class="hidden xl:block">
+<ul class="flex items-center gap-1 whitespace-nowrap">
+<li><a class="px-3 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="../">[ 01 ] Главная</a></li>
+<li><a class="px-3 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="../scope/">[ 02 ] Услуги</a></li>
+<li><a class="px-3 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="../stack/">[ 03 ] Стек</a></li>
+<li><a aria-current="page" class="px-3 py-2 text-electric-orange border-t-2 border-electric-orange" href="../work/">[ 04 ] Проекты</a></li>
+<li><a class="px-3 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="../ping/">[ 05 ] Контакты</a></li>
+</ul>
+</nav>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center px-2 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="../en/work/" hreflang="en" lang="en"><span aria-hidden="true">[ <span class="text-electric-orange">RU</span> / EN ]</span><span class="sr-only">English version</span></a>
+<a class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded font-bold text-electric-orange hover:bg-surface-container-low transition-colors" download="" href="../assets/cv/Ilya_Vitalievich_CV.pdf">
+<span aria-hidden="true" class="material-symbols-outlined text-icon-md">download</span>Скачать резюме</a>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Открыть меню" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded text-on-surface hover:bg-surface-container-low" data-menu-toggle="" type="button">
+<span aria-hidden="true" class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<nav aria-label="Мобильное меню" class="xl:hidden border-t border-stroke-soft bg-background" hidden="" id="mobile-nav">
+<ul class="divide-y divide-stroke-soft">
+<li><a class="block px-margin-mobile py-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low" href="../">[ 01 ] Главная</a></li>
+<li><a class="block px-margin-mobile py-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low" href="../scope/">[ 02 ] Услуги</a></li>
+<li><a class="block px-margin-mobile py-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low" href="../stack/">[ 03 ] Стек</a></li>
+<li><a aria-current="page" class="block px-margin-mobile py-4 text-electric-orange" href="../work/">[ 04 ] Проекты</a></li>
+<li><a class="block px-margin-mobile py-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low" href="../ping/">[ 05 ] Контакты</a></li>
+<li><a class="flex items-center gap-2 px-margin-mobile py-4 font-bold text-electric-orange" download="" href="../assets/cv/Ilya_Vitalievich_CV.pdf"><span aria-hidden="true" class="material-symbols-outlined text-icon-md">download</span>Скачать резюме</a></li>
+</ul>
+</nav>
+</header>
+<main class="flex-grow flex flex-col w-full max-w-7xl mx-auto py-stack-md gap-stack-md px-margin-mobile md:px-margin-desktop" id="main">
+<!-- Page header -->
+<section class="section-border border-line-soft bg-panel flex flex-col relative overflow-hidden p-6 md:p-margin-desktop">
+<div aria-hidden="true" class="absolute top-6 right-6 text-fg-muted opacity-20 pointer-events-none select-none hidden md:block">
+<span class="material-symbols-outlined text-glyph-lg">data_object</span>
+</div>
+<div class="relative z-10 flex flex-col gap-stack-sm">
+<span class="font-metadata text-metadata text-electric-orange uppercase border border-line px-2 py-1 inline-block w-max rounded">PORTFOLIO.MODULE()</span>
+<h1 class="font-display uppercase tracking-tight leading-[0.9] text-headline-lg-mobile sm:text-headline-lg lg:text-display hyphens-auto break-words text-fg-strong">ПРОЕКТЫ И ОПЫТ</h1>
+<div class="border-t border-line-soft pt-4 max-w-2xl mt-4">
+<p class="font-body-lg text-body-lg text-fg-muted"><span class="text-electric-orange">Принцип:</span> Решение инженерных задач, а не просто написание кода. Продакшен-системы с упором на отказоустойчивость, чистую архитектуру и измеримую эффективность.</p>
+</div>
+<ul class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-6 gap-y-2 font-metadata text-metadata leading-snug uppercase text-fg-subtle">
+<li class="flex items-center gap-2 text-fg-soft"><span class="w-2 h-2 rounded-full bg-status-online"></span>2 КОММЕРЧЕСКИХ ПРОЕКТА</li>
+<li>СТАТУС: РАБОТАЮТ В ПРОДАКШЕНЕ</li>
+<li>ЛОКАЦИЯ: КРАСНОДАР / УДАЛЁННО</li>
+</ul>
+</div>
+</section>
+<!-- PROJECTS CONTAINER -->
+<div class="flex flex-col gap-stack-md">
+<!-- PROJECT 01 CARD -->
+<article class="rounded-lg overflow-hidden border border-line-soft bg-panel hover:border-line transition-colors duration-200">
+<!-- Header Strip -->
+<div class="px-6 py-4 border-b border-line-soft bg-panel-header flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="w-2 h-2 bg-electric-orange"></span>
+<span class="font-mono text-caption font-semibold text-electric-orange tracking-wider uppercase">ПРОЕКТ // 01 • КОММЕРЧЕСКИЙ</span>
+<span class="hidden sm:inline text-fg-faint font-mono text-caption">/</span>
+<span class="font-mono text-caption text-fg-muted">ИЮЛЬ 2026 — АВГУСТ 2026</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="px-2.5 py-0.5 rounded bg-panel border border-line font-mono text-caption text-fg-soft whitespace-nowrap">РОЛЬ: FULLSTACK-РАЗРАБОТЧИК</span>
+<span aria-hidden="true" class="font-index text-index text-fg-muted bg-line-soft px-2 py-1 rounded whitespace-nowrap">SYS.01</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-6 md:p-8 flex flex-col gap-8">
+<!-- Title & High-level summary -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+<div class="max-w-3xl">
+<h2 class="font-headline text-headline-md md:text-title-lg font-bold text-fg-strong tracking-tight">
+                Lead Intelligence System
+              </h2>
+<p class="font-sans text-body-sm md:text-body-md leading-relaxed text-fg-muted mt-3">Разработка архитектуры и продуктовой логики сервиса сбора данных, фильтрации и нотификации лидов из закрытых и публичных источников. Спроектирован для круглосуточного мониторинга с ультранизкой задержкой уведомлений.</p>
+</div>
+<div class="flex flex-col items-start md:items-end justify-between self-stretch shrink-0">
+<span class="inline-flex items-center gap-1.5 font-mono text-caption text-status-online">
+<span class="w-1.5 h-1.5 rounded-full bg-status-online animate-ping"></span>
+                • РАБОТАЕТ / ВЫСОКАЯ НАГРУЗКА
+              </span>
+</div>
+</div>
+<!-- Core Contribution Callout -->
+<div class="p-4 rounded-r border-l-2 border-electric-orange bg-panel/60 flex items-start gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-electric-orange text-icon-lg mt-0.5">terminal</span>
+<div class="font-mono text-caption leading-relaxed text-fg-soft">
+<span class="text-electric-orange font-bold uppercase tracking-wider block mb-0.5">Вклад в проект (&gt;50% кодовой базы):</span>
+              Реализовал слой интеграции с источниками, бизнес-правила отбора и скоринга, CRM-ленту, интерактивный Telegram-бот, сквозной CI/CD и эксплуатацию в продакшене.
+            </div>
+</div>
+<!-- Structured Solutions Grid -->
+<div>
+<div class="font-mono text-caption text-fg-muted uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="text-electric-orange">//</span>
+<span>ИНЖЕНЕРНЫЕ РЕШЕНИЯ</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Solution 1 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.01</span>
+<span class="text-electric-orange font-semibold">-72% RAM</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Оптимизация парсинга и RAM</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Сбор данных без API/RSS. За счёт извлечения стейта (скрытого JSON) прямо из HTML-разметки исключил headless-браузер, снизив потребление RAM и затраты на VPS.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  стейт напрямую из HTML
+                </div>
+</div>
+<!-- Solution 2 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.02</span>
+<span class="text-fg-soft font-semibold">0% ПОТЕРЬ</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Повышение качества данных</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Исправил потерю лидов: перепроектировал обработку неопределённых бюджетов, разделив состояния «бюджет не указан» и «цена по договорённости» по валидации реальных заказов.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  классификация бюджетов
+                </div>
+</div>
+<!-- Solution 3 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.03</span>
+<span class="text-fg-soft font-semibold">ГРАНИЦЫ \b</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Продвинутая фильтрация</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Устранил ложные срабатывания пре-фильтра ключевых слов (наложение подстрок), переписав логику матчинга на регулярные выражения по строгим границам слов (\b).
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  точный regex-матчинг
+                </div>
+</div>
+<!-- Solution 4 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.04</span>
+<span class="text-fg-soft font-semibold">−65% ШУМА</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Аналитика рынка без спама</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Внедрил признак доступности отклика: лиды с платным откликом агрегируются для общей аналитики рынка, но не триггерят мгновенные пуш-уведомления.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  фильтрация шума
+                </div>
+</div>
+<!-- Solution 5 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.05</span>
+<span class="text-status-online font-semibold">ЖИВЫЕ ТЕСТЫ</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Автотестирование парсеров</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Защита от изменений вёрстки доноров: разработал E2E-тесты на нативном node:test по живым источникам для раннего обнаружения регрессий до инцидентов.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  автотесты на node:test
+                </div>
+</div>
+<!-- Solution 6 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.06</span>
+<span class="text-fg-soft font-semibold">БЕЗ ПЕРЕЗАПУСКА</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Динамическая конфигурация</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Перенёс пороговые настройки уведомлений из env в БД с выводом в UI. Интегрировал калькулятор-прогноз трафика лидов при изменении параметров на лету.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  конфиг в БД + прогноз трафика
+                </div>
+</div>
+</div>
+</div>
+<!-- Tech stack tags -->
+<div class="pt-4 border-t border-line-soft flex flex-wrap items-center gap-2">
+<span class="font-mono text-caption text-fg-subtle uppercase mr-2 tracking-wider">СТЕК:</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">NODE.JS 22</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">TYPESCRIPT</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">NEXT.JS 16</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">PRISMA 7</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">SQLITE (WAL)</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">ZOD</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">GRAMMY</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">DOCKER COMPOSE</span>
+</div>
+</div>
+</article>
+<!-- PROJECT 02 CARD -->
+<article class="rounded-lg overflow-hidden border border-line-soft bg-panel hover:border-line transition-colors duration-200">
+<!-- Header Strip -->
+<div class="px-6 py-4 border-b border-line-soft bg-panel-header flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="w-2 h-2 bg-electric-orange"></span>
+<span class="font-mono text-caption font-semibold text-electric-orange tracking-wider uppercase">ПРОЕКТ // 02 • ФИНАНСОВАЯ СИСТЕМА</span>
+<span class="hidden sm:inline text-fg-faint font-mono text-caption">/</span>
+<span class="font-mono text-caption text-fg-muted">ПРОИЗВОДСТВО</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="px-2.5 py-0.5 rounded bg-panel border border-line font-mono text-caption text-fg-soft whitespace-nowrap">РОЛЬ: FRONTEND / FULLSTACK</span>
+<span aria-hidden="true" class="font-index text-index text-fg-muted bg-line-soft px-2 py-1 rounded whitespace-nowrap">SYS.02</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-6 md:p-8 flex flex-col gap-8">
+<!-- Title & High-level summary -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+<div class="max-w-3xl">
+<h2 class="font-headline text-headline-md md:text-title-lg font-bold text-fg-strong tracking-tight">
+                Payroll Automation Engine
+              </h2>
+<p class="font-sans text-body-sm md:text-body-md leading-relaxed text-fg-muted mt-3">Система автоматического расчёта заработной платы. Разработал с нуля веб-приложение для автоматизации финансового учёта и расчёта зарплат в компаниях малого производства с динамическими тарифными сетками.</p>
+</div>
+<div class="flex flex-col items-start md:items-end justify-between self-stretch shrink-0">
+<span class="inline-flex items-center gap-1.5 font-mono text-caption text-fg-soft">
+<span class="w-1.5 h-1.5 rounded-full bg-electric-orange"></span>
+                • АКТИВЕН / ТОЧНЫЙ УЧЁТ
+              </span>
+</div>
+</div>
+<!-- Structured Solutions Grid -->
+<div>
+<div class="font-mono text-caption text-fg-muted uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="text-electric-orange">//</span>
+<span>ИНЖЕНЕРНЫЕ РЕШЕНИЯ</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Solution 1 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.01</span>
+<span class="text-fg-soft font-semibold">МНОГО ИСТОЧНИКОВ</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Бизнес-логика расчётов</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Спроектировал и реализовал серверный модуль расчёта выплат, динамически агрегирующий данные из базовых ставок должностей, ежемесячных премий/удержаний и налоговых сеток.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  агрегация на сервере
+                </div>
+</div>
+<!-- Solution 2 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.02</span>
+<span class="text-electric-orange font-semibold">НАЛОГИ БЕЗ КОДА</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Гибкая налоговая система</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Вынес управление налогами в отдельную динамическую сущность: изменение ставок и статусов активности налогов происходит через UI без правок бэкенда.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  налоги как отдельные сущности
+                </div>
+</div>
+<!-- Solution 3 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.03</span>
+<span class="text-fg-soft font-semibold">RBAC НА ЭНДПОИНТАХ</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Безопасность и RBAC</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Ролевая модель доступа (Администратор/Сотрудник). Защитил весь административный CRUD на уровне middleware эндпоинтов, устранив векторы обхода через UI.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  строгий контроль доступа
+                </div>
+</div>
+<!-- Solution 4 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.04</span>
+<span class="text-fg-soft font-semibold">СЕССИИ В БД</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Авторизация</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Сессионная авторизация на базе express-session и connect-mongo с хешированием bcrypt, защитой cookie-флагов и изоляцией пользовательских состояний.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  сессии в MongoDB
+                </div>
+</div>
+<!-- Solution 5 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.05</span>
+<span class="text-fg-soft font-semibold">СНАПШОТЫ</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Архитектура данных</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Схема MongoDB (Mongoose) с фиксацией моментальных снимков (снапшотов) расчётов в истории для исключения расхождений при изменении базовых ставок в будущем.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  снимки истории расчётов
+                </div>
+</div>
+<!-- Solution 6 -->
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2 font-mono text-micro text-fg-subtle mb-2">
+<span>МОДУЛЬ.06</span>
+<span class="text-status-online font-semibold">&lt; 18 КБ</span>
+</div>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Фронтенд без оверхеда</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                    Клиентский интерфейс на чистом JavaScript (Vanilla JS), взаимодействующий с бэкендом через REST API с асинхронным обновлением таблиц без полной перезагрузки.
+                  </p>
+</div>
+<div class="mt-4 pt-2 border-t border-line-soft/60 font-mono text-micro text-fg-subtle">
+                  интерфейс без фреймворков
+                </div>
+</div>
+</div>
+</div>
+<!-- Tech stack tags -->
+<div class="pt-4 border-t border-line-soft flex flex-wrap items-center gap-2">
+<span class="font-mono text-caption text-fg-subtle uppercase mr-2 tracking-wider">СТЕК:</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">NODE.JS</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">EXPRESS 5</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">MONGODB</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">MONGOOSE</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">JAVASCRIPT</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">REST API</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">EXPRESS-SESSION</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">BCRYPTJS</span>
+<span class="border border-line bg-panel/60 font-mono text-caption px-2.5 py-1 rounded text-fg-soft">HTML5 / CSS3</span>
+</div>
+</div>
+</article>
+<!-- SECTION 03: EDUCATION & FOUNDATION CARD -->
+<article class="rounded-lg overflow-hidden border border-line-soft bg-panel hover:border-line transition-colors duration-200">
+<!-- Header Strip -->
+<div class="px-6 py-4 border-b border-line-soft bg-panel-header flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="w-2 h-2 bg-electric-orange"></span>
+<span class="font-mono text-caption font-semibold text-electric-orange tracking-wider uppercase">РАЗДЕЛ // 03 • ОБРАЗОВАНИЕ И РАЗВИТИЕ</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="px-2.5 py-0.5 rounded bg-panel border border-line font-mono text-caption text-fg-soft whitespace-nowrap">ПОСТОЯННАЯ ПРАКТИКА</span>
+<span aria-hidden="true" class="font-index text-index text-fg-muted bg-line-soft px-2 py-1 rounded whitespace-nowrap">SYS.03</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-6 md:p-8 flex flex-col gap-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline text-headline-md font-bold text-fg-strong tracking-tight">
+                Техническое образование и постоянное обучение
+              </h2>
+<p class="font-sans text-body-sm text-fg-muted mt-1">
+                Фундаментальное образование в сочетании с регулярной разработкой практических систем и внедрением передовых стандартов индустрии.
+              </p>
+</div>
+<div class="flex items-center gap-2 font-mono text-caption text-fg-muted">
+<span class="w-2 h-2 rounded-full bg-status-online"></span>
+<span>ПОДТВЕРЖДЕНО / В РАЗВИТИИ</span>
+</div>
+</div>
+<!-- 4 Domain columns -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<span class="font-mono text-micro text-electric-orange block mb-2">[ ОБЛАСТЬ // 01 ]</span>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Архитектура ПО</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                  Модульные монолиты, изоляция сервисов, проектирование предметных слоёв и строгие контрактные границы.
+                </p>
+</div>
+</div>
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<span class="font-mono text-micro text-electric-orange block mb-2">[ ОБЛАСТЬ // 02 ]</span>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Алгоритмы и структуры данных</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                  Оценка сложности, обходы графов, структуры хранения данных в памяти и кэширующие примитивы.
+                </p>
+</div>
+</div>
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<span class="font-mono text-micro text-electric-orange block mb-2">[ ОБЛАСТЬ // 03 ]</span>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">Современные веб-стандарты</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                  Спецификации ECMAScript, строгая типизация TypeScript, протоколы HTTP/2 &amp; HTTP/3, веб-воркеры.
+                </p>
+</div>
+</div>
+<div class="p-4 rounded bg-panel-inset border border-line-soft flex flex-col justify-between">
+<div>
+<span class="font-mono text-micro text-electric-orange block mb-2">[ ОБЛАСТЬ // 04 ]</span>
+<h3 class="font-headline text-body-sm font-semibold text-fg-strong mb-2">CI/CD и автоматизация</h3>
+<p class="font-sans text-caption leading-relaxed text-fg-muted">
+                  Контейнеризация Docker, статический анализ, гейты качества кода и автоматизация пайплайнов доставки.
+                </p>
+</div>
+</div>
+</div>
+<div class="p-3 rounded bg-panel-inset border border-line-soft font-mono text-caption text-fg-muted flex items-center justify-between gap-4">
+<span class="text-fg-muted">Приоритет: практический продуктовый результат, а не накопление сертификатов.</span>
+<span class="text-electric-orange hidden sm:inline">[ СТАТУС: ФОКУС НА ПРОДАКШЕН ]</span>
+</div>
+</div>
+</article>
+</div>
+</main>
+<footer class="border-t border-stroke-soft bg-background">
+<div class="flex flex-col md:flex-row justify-between items-center gap-stack-sm px-margin-mobile md:px-margin-desktop py-stack-md">
+<p class="font-index text-index text-on-surface-variant">© 2026 REF_DEV. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+<ul class="flex flex-wrap justify-center gap-6">
+<li><a aria-label="GitHub" class="block text-on-surface-variant hover:text-electric-orange transition-colors" data-contact="github" href="https://github.com/ak0lda" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="w-5 h-5 fill-current" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a></li>
+<li><a aria-label="Telegram" class="block text-on-surface-variant hover:text-electric-orange transition-colors" data-contact="telegram" href="https://t.me/YOUR_USERNAME" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="w-5 h-5 fill-current" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg></a></li>
+<li><a aria-label="LinkedIn" class="block text-on-surface-variant hover:text-electric-orange transition-colors" data-contact="linkedin" href="https://www.linkedin.com/in/YOUR_USERNAME" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="w-5 h-5 fill-current" focusable="false" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"></path></svg></a></li>
+</ul>
+</div>
+</footer>
+</body>
+</html>

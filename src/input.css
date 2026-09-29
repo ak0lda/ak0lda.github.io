@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-padding-top: 5rem; /* высота фиксированной шапки + запас */
+  }
+  body {
+    background-color: theme('colors.background');
+    color: theme('colors.on-background');
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.electric-orange');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .clean-box {
+    border: 1px solid theme('colors.stroke-soft');
+    border-radius: theme('borderRadius.DEFAULT');
+  }
+  .section-border {
+    border: 1px solid theme('colors.stroke-soft');
+    border-radius: theme('borderRadius.lg');
+  }
+  .node-border {
+    border: 1px solid theme('colors.stroke-soft');
+    background-color: theme('colors.surface');
+    border-radius: theme('borderRadius.DEFAULT');
+  }
+
+  .btn-neo {
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .btn-neo:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+  .btn-neo:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Схема технологий на странице Stack */
+  .blueprint-line-h {
+    height: 1px;
+    width: 100%;
+    background-color: theme('colors.stroke-soft');
+  }
+  .blueprint-line-v {
+    width: 1px;
+    height: 100%;
+    background-color: theme('colors.stroke-soft');
+  }
+  .blueprint-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: theme('colors.electric-orange');
+  }
+
+  /* Фоновая сетка страницы 404 */
+  .grid-overlay {
+    background-image:
+      linear-gradient(theme('colors.stroke-soft') 1px, transparent 1px),
+      linear-gradient(90deg, theme('colors.stroke-soft') 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Эффект развёртки монитора на странице 404 */
+  .scanlines {
+    background-image: linear-gradient(transparent 50%, theme('colors.surface-container-lowest' / 50%) 50%);
+    background-size: 100% 4px;
+  }
+
+  /* Приглушённая сетка: не требует затемняющего слоя и корректно прокручивается */
+  .grid-overlay-faint {
+    background-image:
+      linear-gradient(theme('colors.stroke-soft' / 10%) 1px, transparent 1px),
+      linear-gradient(90deg, theme('colors.stroke-soft' / 10%) 1px, transparent 1px);
+  }
+
+  .glitch-text {
+    animation: glitch 1s linear infinite;
+  }
+
+  /* Ссылка «перейти к содержимому» для клавиатуры и скринридеров */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: theme('borderRadius.DEFAULT');
+    background-color: theme('colors.electric-orange');
+    color: theme('colors.background');
+    font-family: theme('fontFamily.metadata');
+    font-weight: 700;
+  }
+  .skip-link:focus {
+    top: 0.75rem;
+  }
+}
+
+@layer utilities {
+  /* Material Symbols: заполненный вариант иконки */
+  .icon-filled {
+    font-variation-settings: 'FILL' 1;
+  }
+}
+
+@keyframes glitch {
+  2%, 64% { transform: translate(2px, 0) skew(0deg); }
+  4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+  62% { transform: translate(0, 0) skew(5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

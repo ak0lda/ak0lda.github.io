@@ -1,0 +1,7 @@
+# Бинарник Tailwind CLI
+tailwindcss*.exe
+tailwindcss-*
+
+node_modules/
+.DS_Store
+Thumbs.db
