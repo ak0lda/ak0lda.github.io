@@ -1,10 +1,8 @@
-// Общий скрипт сайта: мобильное меню, часы и язык страницы 404.
 (function () {
   'use strict';
 
   var isEn = document.documentElement.lang === 'en';
 
-  // --- Мобильное меню ---
   var toggle = document.querySelector('[data-menu-toggle]');
   var menu = document.getElementById('mobile-nav');
 
@@ -31,16 +29,14 @@
       }
     });
 
-    // При переходе на десктопную ширину меню закрывается
     window.matchMedia('(min-width: 1280px)').addEventListener('change', function (event) {
       if (event.matches) setOpen(false);
     });
   }
 
-  // --- Страница 404: одна на весь сайт, язык берём из адреса ---
   if (document.body.hasAttribute('data-404') && /\/en(\/|$)/.test(location.pathname)) {
     document.documentElement.lang = 'en';
-    document.title = '404 — Page Not Found | Ilya Vitalievich';
+    document.title = '404 — Page Not Found | Ilya Titskiy';
     document.querySelectorAll('[data-en]').forEach(function (el) {
       el.textContent = el.getAttribute('data-en');
     });
@@ -49,7 +45,6 @@
     });
   }
 
-  // --- Время на странице 404 ---
   var timeEl = document.getElementById('sys-time');
   if (timeEl) {
     var updateTime = function () {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ak0lda.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/work/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/work/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/work/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/scope/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/scope/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/scope/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/stack/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/stack/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/stack/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/ping/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/ping/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/ping/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/en/work/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/work/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/work/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/en/scope/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/scope/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/scope/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/en/stack/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/stack/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/stack/"/>
+  </url>
+  <url>
+    <loc>https://ak0lda.github.io/en/ping/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ak0lda.github.io/ping/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ak0lda.github.io/en/ping/"/>
+  </url>
+</urlset>

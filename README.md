@@ -1,4 +1,4 @@
-# ak0lda.github.io — портфолио Ильи Витальевича
+# ak0lda.github.io — портфолио Ильи Тицкого
 
 Сайт: https://ak0lda.github.io/
 
@@ -18,7 +18,7 @@ CV_Blog/
 ├─ assets/
 │  ├─ css/styles.css     ← СОБРАННЫЙ CSS, руками не править
 │  ├─ js/main.js         ← мобильное меню, часы на 404
-│  ├─ js/contacts.js     ← ссылки на контакты (GgiitHub, Telegram, LinkedIn, email)
+│  ├─ js/contacts.js     ← ссылки на контакты (GitHub, Telegram, LinkedIn, email)
 │  ├─ img/favicon.svg
 │  └─ cv/                ← сюда положить PDF резюме
 ├─ src/input.css         ← исходник стилей (общие классы, анимации)
