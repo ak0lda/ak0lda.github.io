@@ -1,0 +1,99 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1791970491139,
+  "projectRoot": "C:\\Users\\ak0lda\\Desktop\\CV_Blog",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1791970491038,
+      "keyFiles": []
+    },
+    "en": {
+      "path": "en",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1791970491039,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "ping": {
+      "path": "ping",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1791970491040,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "scope": {
+      "path": "scope",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1791970491041,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1791970491042,
+      "keyFiles": [
+        "input.css"
+      ]
+    },
+    "stack": {
+      "path": "stack",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1791970491043,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "work": {
+      "path": "work",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1791970491044,
+      "keyFiles": [
+        "index.html"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
