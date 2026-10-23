@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1791970491139,
+  "lastScanned": 1792681740431,
   "projectRoot": "C:\\Users\\ak0lda\\Desktop\\CV_Blog",
   "techStack": {
     "languages": [],
@@ -36,23 +36,32 @@
       "path": "assets",
       "purpose": "Static assets",
       "fileCount": 0,
-      "lastAccessed": 1791970491038,
+      "lastAccessed": 1792681740325,
       "keyFiles": []
     },
     "en": {
       "path": "en",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1791970491039,
+      "lastAccessed": 1792681740326,
       "keyFiles": [
         "index.html"
+      ]
+    },
+    "marketing": {
+      "path": "marketing",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1792681740329,
+      "keyFiles": [
+        "style-guide.html"
       ]
     },
     "ping": {
       "path": "ping",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1791970491040,
+      "lastAccessed": 1792681740330,
       "keyFiles": [
         "index.html"
       ]
@@ -61,7 +70,7 @@
       "path": "scope",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1791970491041,
+      "lastAccessed": 1792681740330,
       "keyFiles": [
         "index.html"
       ]
@@ -70,7 +79,7 @@
       "path": "src",
       "purpose": "Source code",
       "fileCount": 1,
-      "lastAccessed": 1791970491042,
+      "lastAccessed": 1792681740332,
       "keyFiles": [
         "input.css"
       ]
@@ -79,7 +88,7 @@
       "path": "stack",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1791970491043,
+      "lastAccessed": 1792681740333,
       "keyFiles": [
         "index.html"
       ]
@@ -88,7 +97,7 @@
       "path": "work",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1791970491044,
+      "lastAccessed": 1792681740334,
       "keyFiles": [
         "index.html"
       ]

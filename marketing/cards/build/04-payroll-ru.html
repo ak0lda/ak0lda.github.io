@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@500;700&family=Manrope:wght@800&display=block" rel="stylesheet">
+<style>
+:root { --background: #141313; --surface-container-lowest: #0f0e0e; --surface-container-low: #1c1b1b; --surface-container-high: #2b2a2a; --surface-bright: #3a3939; --on-surface: #e6e1e1; --on-surface-variant: #e3bfb3; --electric-orange: #ff5f1f; --stroke-soft: #3a3939; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1600px; height: 1200px; overflow: hidden; }
+body {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgb(58 57 57 / 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(58 57 57 / 0.35) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+  color: var(--on-surface);
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: grid; place-items: center;
+}
+/* Рамка выходит за безопасную зону, содержимое — внутри центрального квадрата 1200×1200 */
+.frame {
+  position: relative;
+  width: calc(100% - 160px); height: calc(100% - 160px);
+  background: var(--surface-container-low);
+  border: 1px solid var(--stroke-soft);
+  border-radius: 8px;
+  padding: 72px 120px;
+  display: flex; flex-direction: column; gap: 44px;
+}
+.top { display: flex; justify-content: space-between; align-items: center; }
+.brand {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700;
+  font-size: 30px; letter-spacing: 0.05em; color: var(--electric-orange);
+  border: 2px solid var(--stroke-soft); border-radius: 4px; padding: 12px 22px;
+}
+.sys {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700;
+  font-size: 22px; letter-spacing: 0.1em; color: var(--on-surface-variant);
+  background: var(--surface-bright); border-radius: 4px; padding: 8px 14px;
+}
+.head { display: flex; flex-direction: column; gap: 28px; }
+.eyebrow {
+  display: flex; align-items: center; gap: 16px;
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700;
+  font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--electric-orange);
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--electric-orange); flex-shrink: 0; }
+h1 {
+  font-family: Manrope, system-ui, sans-serif; font-weight: 800;
+  font-size: 96px; line-height: 1.0; letter-spacing: -0.005em; text-transform: uppercase;
+  text-wrap: balance; color: var(--on-surface);
+}
+.lead {
+  border-left: 3px solid var(--electric-orange); padding-left: 28px;
+  font-size: 32px; line-height: 1.4; color: var(--on-surface-variant); max-width: 30em;
+}
+.metrics {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--stroke-soft); border: 1px solid var(--stroke-soft); border-radius: 4px; overflow: hidden;
+}
+.metric { background: var(--background); padding: 26px 28px; display: flex; flex-direction: column; gap: 14px; }
+.metric b {
+  font-family: Manrope, system-ui, sans-serif; font-weight: 800; font-size: 54px; line-height: 1;
+  color: var(--on-surface); white-space: nowrap;
+}
+.metric:last-child b { color: var(--electric-orange); }
+.metric span {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 500;
+  font-size: 20px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-surface-variant); line-height: 1.3;
+}
+.foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip {
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700; font-size: 22px; letter-spacing: 0.05em;
+  color: var(--on-surface); background: var(--surface-container-high);
+  border: 1px solid var(--stroke-soft); border-radius: 4px; padding: 10px 18px;
+}
+.site {
+  display: flex; align-items: center; gap: 14px; white-space: nowrap;
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 500; font-size: 24px; color: var(--on-surface);
+}
+</style></head>
+<body><div class="frame">
+  <div class="top"><span class="brand">REF_DEV</span><span class="sys">SYS.04</span></div>
+  <div class="head">
+    <p class="eyebrow"><span class="dot"></span>Проект // 04 · Веб-приложение · финансы</p>
+    <h1>Payroll Automation Engine</h1>
+    <p class="lead">Расчёт зарплат для малого производства с динамическими тарифными сетками и налогами.</p>
+  </div>
+  <div class="metrics"><div class='metric'><b>RBAC</b><span>доступ по ролям</span></div><div class='metric'><b>&lt; 18 КБ</b><span>фронтенд без фреймворков</span></div><div class='metric'><b>Снапшоты</b><span>история расчётов</span></div></div>
+  <div class="foot">
+    <div class="chips"><span class='chip'>Node.js</span><span class='chip'>Express</span><span class='chip'>MongoDB</span><span class='chip'>Vanilla JS</span></div>
+    <div class="site"><span class="dot"></span>ak0lda.github.io</div>
+  </div>
+</div></body></html>

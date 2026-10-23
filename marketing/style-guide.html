@@ -1,0 +1,515 @@
+<title>Стиль REF_DEV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Макет: одна колонка «пульта» с секциями-модулями в рамках 1px, как на сайте. Тема одна — тёмная, как у сайта. */
+:root {
+  --bg: #141313;
+  --lowest: #0f0e0e;
+  --low: #1c1b1b;
+  --container: #201f1f;
+  --high: #2b2a2a;
+  --variant: #363434;
+  --bright: #3a3939;
+  --fg: #e6e1e1;
+  --fg-2: #e3bfb3;
+  --accent: #ff5f1f;
+  --stroke: #3a3939;
+  --online: #34d399;
+  --paper: #ffffff;
+  --ink: #141313;
+  --f-display: Manrope, system-ui, sans-serif;
+  --f-body: Inter, system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.55 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    linear-gradient(rgb(58 57 57 / 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(58 57 57 / 0.18) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 80px;
+  display: flex; flex-direction: column; gap: 32px;
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.mono { font-family: var(--f-mono); }
+.idx { font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); }
+.meta { font: 500 13px/1.3 var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg-2); }
+.accent { color: var(--accent); }
+.muted { color: var(--fg-2); }
+
+/* Шапка */
+.hero {
+  border: 1px solid var(--stroke); border-radius: 8px; background: var(--bg);
+  padding: clamp(24px, 5vw, 48px); display: flex; flex-direction: column; gap: 20px; position: relative;
+}
+.hero .tag { position: absolute; top: 24px; right: 24px; }
+.hero h1 { font-size: clamp(36px, 8vw, 72px); font-weight: 800; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
+.hero .sub { border-left: 2px solid var(--accent); padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.hero .sub p:first-child { font: 500 22px/1.3 var(--f-display); color: var(--accent); }
+.hero .lead { max-width: 62ch; color: var(--fg); font-size: 17px; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc a {
+  font: 500 13px/1 var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg-2);
+  text-decoration: none; padding: 9px 12px; border-radius: 4px; background: var(--low); border: 1px solid var(--stroke);
+}
+.toc a:hover { color: var(--fg); border-color: var(--accent); }
+
+/* Модуль-секция */
+.mod { border: 1px solid var(--stroke); border-radius: 8px; background: var(--bg); overflow: hidden; }
+.mod > header {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 16px 24px; background: var(--low); border-bottom: 1px solid var(--stroke);
+}
+.mod > header h2 { font-size: 22px; font-weight: 600; }
+.mod > header .idx { background: var(--variant); padding: 5px 8px; border-radius: 4px; }
+.body { padding: clamp(20px, 4vw, 32px); display: flex; flex-direction: column; gap: 24px; }
+.body > p, .body li { max-width: 68ch; }
+.body > * { min-width: 0; max-width: 100%; }
+.mod, .hero { min-width: 0; }
+.note { font-size: 14px; color: var(--fg-2); }
+
+/* Принципы */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--stroke); border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; }
+.rule { background: var(--low); padding: 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.rule h3 { font-size: 17px; font-weight: 700; }
+.rule p { font-size: 14.5px; color: var(--fg-2); }
+
+/* Палитра */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.sw { border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; background: var(--low); display: flex; flex-direction: column; min-width: 0; }
+.sw .chip { height: 84px; border-bottom: 1px solid var(--stroke); }
+.sw .info { padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.sw .name { font: 600 14px/1.3 var(--f-body); }
+.sw .role { font-size: 13px; color: var(--fg-2); line-height: 1.4; }
+.hex {
+  align-self: flex-start; font: 700 13px/1 var(--f-mono); letter-spacing: 0.04em; color: var(--fg);
+  background: var(--high); border: 1px solid var(--stroke); border-radius: 4px; padding: 6px 8px; cursor: pointer;
+}
+.hex:hover { border-color: var(--accent); }
+.hex.done { color: var(--accent); }
+.ratio { display: flex; height: 40px; border-radius: 4px; overflow: hidden; border: 1px solid var(--stroke); }
+.ratio div { min-width: 0; display: flex; align-items: center; padding: 0 10px; font: 700 11px/1 var(--f-mono); letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; }
+.group-label { margin-bottom: -12px; }
+
+/* Шрифты */
+.specimens { display: flex; flex-direction: column; gap: 1px; background: var(--stroke); border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; }
+.spec { background: var(--bg); padding: 24px; display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
+.spec > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+.spec .who { display: flex; flex-direction: column; gap: 8px; }
+.spec .who b { font: 700 18px/1.2 var(--f-display); }
+.spec .who span { font-size: 13px; color: var(--fg-2); }
+.s-display { font: 800 clamp(34px, 6vw, 64px)/0.95 var(--f-display); text-transform: uppercase; letter-spacing: -0.01em; }
+.s-head { font: 600 24px/1.3 var(--f-display); margin-top: 12px; }
+.s-body { font: 400 18px/1.6 var(--f-body); max-width: 60ch; }
+.s-mono { font: 700 15px/1.6 var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); }
+.scale { width: 100%; border-collapse: collapse; font-size: 14px; }
+.scale-wrap { overflow-x: auto; border: 1px solid var(--stroke); border-radius: 4px; }
+.scale th, .scale td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--stroke); white-space: nowrap; }
+.scale th { font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); background: var(--low); }
+.scale tr:last-child td { border-bottom: 0; }
+.scale td { font-variant-numeric: tabular-nums; }
+
+/* Графический язык */
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.demo { border: 1px solid var(--stroke); border-radius: 4px; background: var(--low); display: flex; flex-direction: column; min-width: 0; }
+.demo .stage { min-width: 0; padding: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; min-height: 120px; border-bottom: 1px solid var(--stroke); background: var(--bg); }
+.demo .cap { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.demo .cap b { font-size: 15px; }
+.demo .cap p { font-size: 13.5px; color: var(--fg-2); }
+.navlink { font: 500 13px/1 var(--f-mono); letter-spacing: 0.05em; padding: 8px 12px; color: var(--fg-2); }
+.navlink.on { color: var(--accent); border-top: 2px solid var(--accent); }
+.lbl { font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); background: var(--variant); padding: 5px 8px; border-radius: 4px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.btn { font: 700 13px/1 var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; padding: 14px 24px; border-radius: 4px; }
+.btn.primary { background: var(--accent); color: var(--bg); }
+.btn.ghost { background: var(--high); color: var(--fg); border: 1px solid var(--stroke); }
+.tchip { font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; padding: 8px 12px; border-radius: 4px; background: var(--high); border: 1px solid var(--stroke); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--stroke); border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; width: 100%; }
+.stats div { background: var(--low); padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.stats dt { font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); }
+.stats dd { overflow-wrap: anywhere; margin: 0; font: 700 13px/1.2 var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; }
+.radii { display: flex; gap: 16px; flex-wrap: wrap; }
+.radii div { width: 72px; height: 72px; border: 1px solid var(--fg-2); display: flex; align-items: flex-end; padding: 8px; font: 700 11px/1 var(--f-mono); color: var(--fg-2); }
+.gridbox { width: 100%; height: 100px; border-radius: 4px; border: 1px solid var(--stroke);
+  background-image: linear-gradient(var(--stroke) 1px, transparent 1px), linear-gradient(90deg, var(--stroke) 1px, transparent 1px);
+  background-size: 25px 25px; position: relative; }
+.gridbox .dot { position: absolute; left: 49px; top: 49px; transform: translate(-50%, -50%); }
+
+/* Текущие знаки */
+.marks { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.markcard .stage { justify-content: center; gap: 20px; min-height: 160px; }
+.wordmark { font: 700 26px/1 var(--f-mono); letter-spacing: 0.05em; color: var(--accent); border: 2px solid var(--stroke); border-radius: 4px; padding: 12px 18px; }
+.headmark { font: 700 24px/1 var(--f-display); color: var(--fg); }
+.braces { font: 400 72px/1 var(--f-mono); color: var(--bright); letter-spacing: 0.1em; }
+.sizes { display: flex; align-items: flex-end; gap: 18px; }
+.sizes figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.sizes figcaption { font: 500 11px/1 var(--f-mono); color: var(--fg-2); }
+.question { border: 1px solid var(--accent); border-radius: 4px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; background: var(--lowest); }
+.question b { font: 700 11px/1 var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+
+/* ТЗ */
+.brief { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--stroke); border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; }
+.brief section { background: var(--bg); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.brief h3 { font-size: 17px; font-weight: 700; display: flex; gap: 10px; align-items: baseline; }
+.brief h3 .idx { color: var(--accent); }
+.brief ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; }
+.brief li::marker { color: var(--accent); }
+.brief li.no::marker { content: "× "; }
+.lightdemo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.lightdemo > div { border-radius: 4px; border: 1px solid var(--stroke); min-height: 120px; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 16px; }
+.on-paper { background: var(--paper); }
+.on-paper .wm { font: 700 24px/1 var(--f-mono); letter-spacing: 0.05em; color: var(--ink); }
+.on-paper .wm i { font-style: normal; color: var(--accent); }
+.on-dark { background: var(--bg); }
+.on-dark .wm { font: 700 24px/1 var(--f-mono); letter-spacing: 0.05em; color: var(--fg); }
+.on-dark .wm i { font-style: normal; color: var(--accent); }
+
+/* Карточки */
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--stroke); border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; }
+.specs div { background: var(--low); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.specs b { font: 700 18px/1.2 var(--f-display); }
+.anatomy { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.safe { position: relative; aspect-ratio: 4 / 3; max-width: 100%; border: 1px solid var(--stroke); border-radius: 4px; background: var(--lowest); overflow: hidden; }
+.safe img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+.safe .zone { position: absolute; top: 0; bottom: 0; left: 12.5%; right: 12.5%; border-left: 2px dashed var(--accent); border-right: 2px dashed var(--accent); }
+.safe .zone span { position: absolute; top: 8px; left: 8px; font: 700 11px/1 var(--f-mono); letter-spacing: 0.08em; color: var(--bg); background: var(--accent); padding: 4px 6px; border-radius: 2px; }
+.steps { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 14.5px; }
+.steps li::marker { font-family: var(--f-mono); color: var(--accent); font-weight: 700; }
+.tabs { display: inline-flex; border: 1px solid var(--stroke); border-radius: 4px; overflow: hidden; align-self: flex-start; }
+.tabs button { font: 700 12px/1 var(--f-mono); letter-spacing: 0.08em; padding: 10px 16px; background: var(--low); color: var(--fg-2); border: 0; cursor: pointer; }
+.tabs button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.gallery figure { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gallery img { width: 100%; height: auto; border: 1px solid var(--stroke); border-radius: 4px; display: block; aspect-ratio: 4 / 3; }
+.gallery figcaption { font: 500 12px/1.3 var(--f-mono); color: var(--fg-2); overflow-wrap: anywhere; }
+code { font: 500 0.92em var(--f-mono); background: var(--high); border: 1px solid var(--stroke); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+footer.end { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 720px) {
+  .spec { grid-template-columns: 1fr; gap: 12px; }
+  .anatomy { grid-template-columns: 1fr; }
+  .hero .tag { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="idx tag">[РАЗДЕЛ: 00 // БРИФ]</span>
+  <p class="eyebrow"><span class="dot"></span>Для дизайнера логотипа и карточек</p>
+  <h1>Стиль REF_DEV</h1>
+  <div class="sub">
+    <p>Илья Тицкий · fullstack-разработчик</p>
+    <p class="meta">Сайт: ak0lda.github.io · TypeScript · React / Next.js · Node.js</p>
+  </div>
+  <p class="lead">Здесь собрано всё, на чём держится визуальный стиль сайта-портфолио: цвета, шрифты, графические приёмы и текущие знаки. Ниже ТЗ на логотип и требования к карточкам проектов для фриланс-бирж. Все значения взяты из кода сайта, а не придуманы заново.</p>
+  <nav class="toc" aria-label="Разделы">
+    <a href="#character">[ 01 ] Характер</a>
+    <a href="#color">[ 02 ] Цвет</a>
+    <a href="#type">[ 03 ] Шрифты</a>
+    <a href="#language">[ 04 ] Графика</a>
+    <a href="#marks">[ 05 ] Текущие знаки</a>
+    <a href="#logo">[ 06 ] ТЗ на логотип</a>
+    <a href="#cards">[ 07 ] Карточки</a>
+  </nav>
+</header>
+
+<section class="mod" id="character">
+  <header><h2>Характер</h2><span class="idx">SYS.01</span></header>
+  <div class="body">
+    <p>Сайт выглядит как панель инженерной системы: тёмный экран, сетка, тонкие линии, моноширинные метки и один яркий оранжевый сигнал. Он должен вызывать ощущение точности и надёжности, а не «креативного агентства».</p>
+    <div class="rules">
+      <div class="rule"><h3>Графит, а не чёрный</h3><p>Фон #141313 с едва заметным тёплым оттенком. Чистый #000 не используется нигде.</p></div>
+      <div class="rule"><h3>Один акцент</h3><p>Электрический оранжевый отмечает только главное: активный пункт, ключевую цифру, точку статуса, главную кнопку.</p></div>
+      <div class="rule"><h3>Язык терминала</h3><p>Метки набраны моноширинным шрифтом капслоком: <span class="mono accent">[ 01 ]</span>, <span class="mono accent">SYS.02</span>, <span class="mono accent">МОДУЛЬ.01</span>.</p></div>
+      <div class="rule"><h3>Линии вместо теней</h3><p>Границы 1px, сетки с промежутком 1px, малые скругления. Без теней, градиентов, стекла и 3D.</p></div>
+      <div class="rule"><h3>Факты вместо картинок</h3><p>Вместо иллюстраций работают цифры: «668 тестов», «−72% RAM». Стоковые фото и маскоты не используются.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="mod" id="color">
+  <header><h2>Цвет</h2><span class="idx">SYS.02</span></header>
+  <div class="body">
+    <p>Палитра закрытая: на сайте разрешены только эти цвета. Нажмите на код, чтобы скопировать его.</p>
+    <p class="idx group-label">Основа бренда</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--bg)"></div><div class="info"><span class="name">Графит</span><span class="role">Фон всего сайта и карточек</span><button class="hex" type="button">#141313</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--accent)"></div><div class="info"><span class="name">Электрический оранжевый</span><span class="role">Единственный акцент бренда</span><button class="hex" type="button">#FF5F1F</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--fg)"></div><div class="info"><span class="name">Светлый текст</span><span class="role">Заголовки и основной текст</span><button class="hex" type="button">#E6E1E1</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--fg-2)"></div><div class="info"><span class="name">Тёплый вторичный</span><span class="role">Описания, подписи, метки</span><button class="hex" type="button">#E3BFB3</button></div></div>
+    </div>
+    <p class="idx group-label">Поверхности и линии (от глубокой к светлой)</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--lowest)"></div><div class="info"><span class="name">Lowest</span><span class="role">Самый глубокий слой, наведение на карточку</span><button class="hex" type="button">#0F0E0E</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--low)"></div><div class="info"><span class="name">Low</span><span class="role">Шапки секций, ячейки</span><button class="hex" type="button">#1C1B1B</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--container)"></div><div class="info"><span class="name">Container</span><span class="role">Панели</span><button class="hex" type="button">#201F1F</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--high)"></div><div class="info"><span class="name">High</span><span class="role">Чипы технологий, второстепенные кнопки</span><button class="hex" type="button">#2B2A2A</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--variant)"></div><div class="info"><span class="name">Variant</span><span class="role">Плашки индексов SYS.0X</span><button class="hex" type="button">#363434</button></div></div>
+      <div class="sw"><div class="chip" style="background:var(--stroke)"></div><div class="info"><span class="name">Линия</span><span class="role">Все границы 1px и сетки</span><button class="hex" type="button">#3A3939</button></div></div>
+    </div>
+    <p class="idx group-label">Служебный, не для бренда</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--online)"></div><div class="info"><span class="name">Статус «онлайн»</span><span class="role">Только индикатор доступности. В логотипе не использовать</span><button class="hex" type="button">#34D399</button></div></div>
+    </div>
+    <p class="idx group-label">Пропорции на экране</p>
+    <div class="ratio" role="img" aria-label="Примерно 85% графит и поверхности, 10% текст, 5% оранжевый">
+      <div style="flex:85; background:var(--low); color:var(--fg-2)">≈85% ГРАФИТ И ПОВЕРХНОСТИ</div>
+      <div style="flex:10; background:var(--fg); color:var(--bg)">10% ТЕКСТ</div>
+      <div style="flex:5; background:var(--accent); color:var(--bg)">5%</div>
+    </div>
+    <p class="note">Контраст оранжевого на графите ≈ 6:1, поэтому оранжевым можно набирать текст. Белый фон в палитре сайта не предусмотрен. Светлые варианты для бирж описаны в разделе 06.</p>
+  </div>
+</section>
+
+<section class="mod" id="type">
+  <header><h2>Шрифты</h2><span class="idx">SYS.03</span></header>
+  <div class="body">
+    <p>Три гарнитуры, все бесплатные из Google Fonts и с кириллицей. У каждой своя роль, и роли не смешиваются.</p>
+    <div class="specimens">
+      <div class="spec">
+        <div class="who"><b>Manrope</b><span>Заголовки и крупные цифры · 600–800 · капс с плотным трекингом</span></div>
+        <div><p class="s-display">Илья Тицкий</p><p class="s-head">Проекты · AI Search &amp; SEO Platform</p></div>
+      </div>
+      <div class="spec">
+        <div class="who"><b>Inter</b><span>Основной текст и описания · 400–500</span></div>
+        <div><p class="s-body">Разрабатываю веб-приложения и автоматизирую бизнес-процессы. Данные остаются на компьютере пользователя.</p></div>
+      </div>
+      <div class="spec">
+        <div class="who"><b>JetBrains Mono</b><span>Метки, навигация, кнопки, индексы · 500–700 · капс, трекинг 0,05–0,1 em</span></div>
+        <div><p class="s-mono">[ 02 ] Проекты · SYS.02 · МОДУЛЬ.01 · ПРОЕКТ // 01</p></div>
+      </div>
+    </div>
+    <div class="scale-wrap">
+      <table class="scale">
+        <thead><tr><th>Токен</th><th>Размер</th><th>Высота строки</th><th>Шрифт</th><th>Где</th></tr></thead>
+        <tbody>
+          <tr><td>display</td><td>80 px · 700</td><td>1.0</td><td>Manrope</td><td>Имя на главной</td></tr>
+          <tr><td>headline-lg</td><td>48 px · 600</td><td>1.1</td><td>Manrope</td><td>Заголовки страниц</td></tr>
+          <tr><td>headline-md</td><td>24 px · 500</td><td>1.3</td><td>Manrope</td><td>Заголовки секций и карточек</td></tr>
+          <tr><td>body-lg</td><td>18 px · 400</td><td>1.6</td><td>Inter</td><td>Вводный текст</td></tr>
+          <tr><td>body-md</td><td>16 px · 400</td><td>1.5</td><td>Inter</td><td>Основной текст</td></tr>
+          <tr><td>metadata</td><td>13 px · 500</td><td>1.0 · +0,05 em</td><td>JetBrains Mono</td><td>Навигация, кнопки</td></tr>
+          <tr><td>index</td><td>11 px · 700</td><td>1.0 · +0,1 em</td><td>JetBrains Mono</td><td>Индексы SYS.0X, подписи</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="mod" id="language">
+  <header><h2>Графический язык</h2><span class="idx">SYS.04</span></header>
+  <div class="body">
+    <p>Повторяющиеся приёмы сайта. Логотип и карточки должны выглядеть как часть этой же системы.</p>
+    <div class="lang-grid">
+      <div class="demo">
+        <div class="stage"><span class="navlink on">[ 01 ] Главная</span><span class="navlink">[ 02 ] Проекты</span><span class="navlink">[ 05 ] Контакты</span></div>
+        <div class="cap"><b>Квадратные скобки и номера</b><p>Навигация пронумерована как разделы системы. Активный пункт оранжевый, с линией сверху.</p></div>
+      </div>
+      <div class="demo">
+        <div class="stage"><span class="lbl">SYS.02</span><span class="eyebrow"><span class="dot"></span>Проект 01 · Последний релиз</span><span class="idx">[РАЗДЕЛ: 01 // ПРОФИЛЬ]</span></div>
+        <div class="cap"><b>Служебные метки</b><p>Индексы <span class="mono">SYS.0X</span>, разделитель <span class="mono">//</span>, точка-статус 6 px.</p></div>
+      </div>
+      <div class="demo">
+        <div class="stage"><span class="btn primary">[ Проекты ]</span><span class="btn ghost">[ Связаться ]</span></div>
+        <div class="cap"><b>Кнопки</b><p>Моноширинный капс в скобках. Главная залита оранжевым, вторая с рамкой 1px.</p></div>
+      </div>
+      <div class="demo">
+        <div class="stage"><span class="tchip">TypeScript</span><span class="tchip">Electron</span><span class="tchip">React</span><span class="tchip">SQLite</span></div>
+        <div class="cap"><b>Чипы технологий</b><p>Плашка #2B2A2A, рамка 1px, скругление 4 px.</p></div>
+      </div>
+      <div class="demo">
+        <div class="stage"><dl class="stats" style="margin:0"><div><dt>Роль</dt><dd>Fullstack</dd></div><div><dt>Код</dt><dd>~130K строк</dd></div><div><dt>Тесты</dt><dd class="accent">668</dd></div></dl></div>
+        <div class="cap"><b>Сетка с промежутком 1px</b><p>Ячейки разделены линией толщиной 1px вместо отступов. Главная цифра оранжевая.</p></div>
+      </div>
+      <div class="demo">
+        <div class="stage"><div class="gridbox"><span class="dot"></span></div></div>
+        <div class="cap"><b>Чертёжная сетка</b><p>Фон из клеток 50 px линией #3A3939, на узлах оранжевые точки.</p></div>
+      </div>
+      <div class="demo">
+        <div class="stage"><div class="radii"><div style="border-radius:4px">4</div><div style="border-radius:8px">8</div><div style="border-radius:12px">12</div></div></div>
+        <div class="cap"><b>Скругления</b><p>4 px для кнопок и чипов, 8 px для секций, 12 px используется редко. Круглых и «пилюль» нет, кроме точек.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mod" id="marks">
+  <header><h2>Текущие знаки</h2><span class="idx">SYS.05</span></header>
+  <div class="body">
+    <p>Логотипа пока нет. На сайте используются три разных знака, и единой системы между ними нет.</p>
+    <div class="marks">
+      <div class="demo markcard">
+        <div class="stage">
+          <div class="sizes">
+            <figure><svg width="64" height="64" viewBox="0 0 32 32" aria-label="Фавикон 64 px"><rect width="32" height="32" rx="6" fill="#141313" stroke="#3a3939" stroke-width="0.5"/><path d="M11 9 5 16l6 7M21 9l6 7-6 7" fill="none" stroke="#ff5f1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><figcaption>64</figcaption></figure>
+            <figure><svg width="32" height="32" viewBox="0 0 32 32" aria-label="Фавикон 32 px"><rect width="32" height="32" rx="6" fill="#141313" stroke="#3a3939" stroke-width="0.5"/><path d="M11 9 5 16l6 7M21 9l6 7-6 7" fill="none" stroke="#ff5f1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><figcaption>32</figcaption></figure>
+            <figure><svg width="16" height="16" viewBox="0 0 32 32" aria-label="Фавикон 16 px"><rect width="32" height="32" rx="6" fill="#141313"/><path d="M11 9 5 16l6 7M21 9l6 7-6 7" fill="none" stroke="#ff5f1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><figcaption>16</figcaption></figure>
+          </div>
+        </div>
+        <div class="cap"><b>Фавикон &lt; &gt;</b><p>Оранжевые угловые скобки на графитовой плитке со скруглением.</p></div>
+      </div>
+      <div class="demo markcard">
+        <div class="stage"><span class="wordmark">REF_DEV</span><span class="headmark">REF_DEV</span></div>
+        <div class="cap"><b>Словесный знак REF_DEV</b><p>В шапке сайта набран Manrope, на обложке для соцсетей — моноширинным шрифтом в рамке.</p></div>
+      </div>
+      <div class="demo markcard">
+        <div class="stage"><span class="braces">{ }</span></div>
+        <div class="cap"><b>Фигурные скобки { }</b><p>Декоративный глиф на обложке и на главной странице (иконка data_object).</p></div>
+      </div>
+    </div>
+    <div class="question">
+      <b>Открытый вопрос для дизайнера</b>
+      <p>Какой знак развивать: угловые скобки &lt; &gt;, фигурные { } или букву/монограмму из REF_DEV? Предложите 2–3 направления. Выбранный знак заменит все три текущих.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mod" id="logo">
+  <header><h2>ТЗ на логотип</h2><span class="idx">SYS.06</span></header>
+  <div class="body">
+    <div class="brief">
+      <section>
+        <h3><span class="idx">01</span>Что обозначаем</h3>
+        <ul>
+          <li>Личный бренд разработчика: <b>REF_DEV</b> (псевдоним) и <b>Илья Тицкий</b>.</li>
+          <li>Услуги: веб- и десктоп-приложения, автоматизация, Telegram-боты.</li>
+          <li>Клиенты: малый бизнес и заказчики на биржах. Важно ощущение надёжного инженера.</li>
+        </ul>
+      </section>
+      <section>
+        <h3><span class="idx">02</span>Состав</h3>
+        <ul>
+          <li>Знак (символ) отдельно.</li>
+          <li>Словесная часть REF_DEV.</li>
+          <li>Горизонтальная связка: знак + REF_DEV.</li>
+          <li>По желанию: вариант с «Илья Тицкий · Fullstack».</li>
+        </ul>
+      </section>
+      <section>
+        <h3><span class="idx">03</span>Где будет жить</h3>
+        <ul>
+          <li>Фавикон 16 и 32 px: знак должен читаться без мелких деталей.</li>
+          <li>Аватар на Kwork, FL.ru, Upwork, Habr, в Telegram и GitHub: круглая обрезка.</li>
+          <li>Шапка сайта на графитовом фоне.</li>
+          <li>Карточки проектов и обложка 1200×630.</li>
+        </ul>
+      </section>
+      <section>
+        <h3><span class="idx">04</span>Цвет и шрифт</h3>
+        <ul>
+          <li>Только графит #141313, оранжевый #FF5F1F и светлый #E6E1E1.</li>
+          <li>Словесная часть на базе JetBrains Mono или Manrope, допускается доработка.</li>
+          <li>Нужна версия для светлого фона: страницы бирж в основном белые.</li>
+          <li>Нужна одноцветная версия: только графит и только белый.</li>
+        </ul>
+      </section>
+      <section>
+        <h3><span class="idx">05</span>Что сдать</h3>
+        <ul>
+          <li>SVG (векторы, текст в кривых) для всех вариантов.</li>
+          <li>PNG с прозрачностью: 512 и 1024 px.</li>
+          <li>Аватар 1024×1024 на графитовом фоне.</li>
+          <li>Фавикон: SVG и PNG 32×32, 180×180.</li>
+          <li>Тёмная, светлая и одноцветная версии.</li>
+        </ul>
+      </section>
+      <section>
+        <h3><span class="idx">06</span>Чего избегать</h3>
+        <ul>
+          <li class="no">Градиенты, тени, объём, «стекло».</li>
+          <li class="no">Новые цвета, особенно синий и фиолетовый «как у всех IT».</li>
+          <li class="no">Маскоты, ноутбуки, шестерёнки, ракеты.</li>
+          <li class="no">Готовая иконка «&lt;/&gt;» из стоков без доработки.</li>
+          <li class="no">Зелёный #34D399: это только статус на сайте.</li>
+        </ul>
+      </section>
+    </div>
+    <p class="idx group-label">Направление для светлого и тёмного фона (предложение, а не готовый знак)</p>
+    <div class="lightdemo">
+      <div class="on-dark"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 9 5 16l6 7M21 9l6 7-6 7" fill="none" stroke="#ff5f1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wm">REF<i>_</i>DEV</span></div>
+      <div class="on-paper"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 9 5 16l6 7M21 9l6 7-6 7" fill="none" stroke="#ff5f1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wm">REF<i>_</i>DEV</span></div>
+    </div>
+    <p class="note">На белом фоне текст набирается графитом #141313, оранжевый остаётся только в знаке и акцентах. Контраст оранжевого на белом ≈ 3:1, поэтому мелкий текст оранжевым на белом не набирается.</p>
+  </div>
+</section>
+
+<section class="mod" id="cards">
+  <header><h2>Карточки проектов для бирж</h2><span class="idx">SYS.07</span></header>
+  <div class="body">
+    <p>Четыре проекта с сайта, каждый на русском и английском. Карточка повторяет стиль сайта: графитовая рамка, крупный заголовок Manrope, три ключевые цифры в сетке и чипы стека.</p>
+    <div class="specs">
+      <div><span class="idx">Размер</span><b>1600 × 1200 px</b></div>
+      <div><span class="idx">Пропорции</span><b>4 : 3</b></div>
+      <div><span class="idx">Безопасная зона</span><b>1200 × 1200, по центру</b></div>
+      <div><span class="idx">Формат</span><b>PNG</b></div>
+    </div>
+    <div class="anatomy">
+      <div class="safe">
+        <img src="cards/01-seo-platform-ru.png" alt="Карточка проекта с отмеченной безопасной зоной">
+        <div class="zone"><span>КВАДРАТ 1200×1200</span></div>
+      </div>
+      <ol class="steps">
+        <li><b>Знак бренда</b> слева вверху, индекс <span class="mono">SYS.0X</span> справа.</li>
+        <li><b>Надзаголовок</b> оранжевым моно: номер и тип проекта.</li>
+        <li><b>Название</b> Manrope 800 капсом, не больше трёх строк.</li>
+        <li><b>Одна фраза</b> о сути, с оранжевой линией слева.</li>
+        <li><b>Три цифры</b> только из реального кейса; последняя оранжевая.</li>
+        <li><b>До четырёх чипов</b> стека и адрес сайта внизу.</li>
+      </ol>
+    </div>
+    <p class="note">Весь текст и цифры лежат внутри центрального квадрата, поэтому карточка не теряет смысла, если биржа обрежет превью до квадрата. Upwork рекомендует горизонтальные превью 4:3 (1000×750 и больше) <a href="https://community.upwork.com/t5/New-to-Upwork/portfolio-thumbnail-image-standard-size/m-p/515158" target="_blank" rel="noopener">по ответам поддержки</a>. Официальный размер для Kwork найти не удалось: перед загрузкой проверьте, как площадка обрезает превью.</p>
+    <div class="tabs" role="group" aria-label="Язык карточек">
+      <button type="button" id="lang-ru" aria-pressed="true" data-lang="ru">RU</button>
+      <button type="button" id="lang-en" aria-pressed="false" data-lang="en">EN</button>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure><img src="cards/01-seo-platform-ru.png" data-base="cards/01-seo-platform" alt="Карточка: AI Search &amp; SEO Platform" loading="lazy" width="1600" height="1200"><figcaption>01-seo-platform-ru.png</figcaption></figure>
+      <figure><img src="cards/02-payment-bot-ru.png" data-base="cards/02-payment-bot" alt="Карточка: бот для оплаты зарубежных сервисов" loading="lazy" width="1600" height="1200"><figcaption>02-payment-bot-ru.png</figcaption></figure>
+      <figure><img src="cards/03-lead-intelligence-ru.png" data-base="cards/03-lead-intelligence" alt="Карточка: Lead Intelligence System" loading="lazy" width="1600" height="1200"><figcaption>03-lead-intelligence-ru.png</figcaption></figure>
+      <figure><img src="cards/04-payroll-ru.png" data-base="cards/04-payroll" alt="Карточка: Payroll Automation Engine" loading="lazy" width="1600" height="1200"><figcaption>04-payroll-ru.png</figcaption></figure>
+    </div>
+    <p class="note">Исходники карточек лежат в репозитории: <code>marketing/cards/build.py</code>. Когда появится логотип, замените строку <code>BRAND_HTML</code> на картинку и перезапустите скрипт: все восемь PNG пересоберутся.</p>
+  </div>
+</section>
+
+<footer class="end meta"><span>© 2026 REF_DEV</span><span>ak0lda.github.io</span></footer>
+</div>
+
+<script>
+document.querySelectorAll('.hex').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var v = b.textContent.trim();
+    var done = function () { b.classList.add('done'); b.textContent = 'Скопировано'; setTimeout(function () { b.classList.remove('done'); b.textContent = v; }, 1200); };
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(b); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(v).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+document.querySelectorAll('.tabs button').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var lang = btn.dataset.lang;
+    document.querySelectorAll('.tabs button').forEach(function (o) { o.setAttribute('aria-pressed', String(o === btn)); });
+    document.querySelectorAll('#gallery img').forEach(function (img) {
+      img.src = img.dataset.base + '-' + lang + '.png';
+      img.nextElementSibling.textContent = img.dataset.base.split('/').pop() + '-' + lang + '.png';
+    });
+  });
+});
+</script>
